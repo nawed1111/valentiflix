@@ -30,6 +30,14 @@ class SoundManager {
         }
     }
 
+    stop(soundId) {
+        let audio = this.sounds[soundId];
+        if (audio) {
+            audio.pause();
+            audio.currentTime = 0;
+        }
+    }
+
     updateUI() {
         const btn = document.getElementById('soundToggle');
         if (btn) {

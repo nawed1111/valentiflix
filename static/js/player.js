@@ -1,8 +1,24 @@
 // Video Player Logic
+document.addEventListener('DOMContentLoaded', () => {
+    // Play ambient sound on load
+    const soundSrc = document.getElementById('soundSrc');
+    if (soundSrc && soundSrc.value && window.soundManager) {
+        const id = soundSrc.value.split('/').pop();
+        window.soundManager.play(id, soundSrc.value);
+    }
+});
+
 window.openVideo = function() {
     const overlay = document.getElementById('videoOverlay');
     const video = document.getElementById('episodeVideo');
     const src = document.getElementById('videoSrc').value;
+
+    // Stop ambient sound
+    const soundSrc = document.getElementById('soundSrc');
+    if (soundSrc && soundSrc.value && window.soundManager) {
+        const id = soundSrc.value.split('/').pop();
+        window.soundManager.stop(id);
+    }
 
     if (overlay && video) {
         overlay.classList.remove('hidden');
