@@ -29,8 +29,16 @@
     >
       {{ messages[0] }}
     </div>
-    {% endif %} {% endwith %} {% block content %}{% endblock %}
+    {% endif %} {% endwith %}
 
+    <!-- Sound Toggle -->
+    <button id="soundToggle" class="fixed bottom-6 right-6 z-50 p-3 bg-black/50 hover:bg-black/80 rounded-full border border-white/20 transition-all text-white">
+      <i data-lucide="volume-2"></i>
+    </button>
+
+    {% block content %}{% endblock %}
+
+    <script src="{{ url_for('static', filename='js/audio.js') }}"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <script>
       lucide.createIcons();

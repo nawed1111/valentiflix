@@ -8,6 +8,7 @@
     <!-- Profile 1 -->
     <a
       href="{{ url_for('browse') }}"
+      onclick="playTadum(event)"
       class="group flex flex-col items-center gap-4"
     >
       <div
@@ -39,4 +40,28 @@
     Sign Out
   </a>
 </div>
+
+<script>
+    // Preload Ta-dum
+    document.addEventListener('DOMContentLoaded', () => {
+        window.soundManager.preload('tadum', '{{ url_for("static", filename="sfx/tadum.mp3") }}');
+    });
+
+    function playTadum(e) {
+        e.preventDefault();
+        const targetUrl = "{{ url_for('browse') }}";
+
+        if (window.soundManager.muted) {
+            window.location.href = targetUrl;
+            return;
+        }
+
+        window.soundManager.play('tadum', '{{ url_for("static", filename="sfx/tadum.mp3") }}');
+
+        // Delay for dramatic effect
+        setTimeout(() => {
+            window.location.href = targetUrl;
+        }, 800);
+    }
+</script>
 {% endblock %}

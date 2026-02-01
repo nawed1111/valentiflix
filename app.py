@@ -26,7 +26,11 @@ CONTENT_DATA = [
         "description": "Like a rose, you bring color and fragrance to my life. A small start to a big week.",
         "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80",
         "memory_text": "Remember when we first met? I knew then that life would be rosier with you.",
-        "secret_answer": "rose"
+        "secret_answer": "rose",
+        "video_file": "rose.mp4",
+        "sound_file": "rose.mp3",
+        "effect_type": "floating_roses",
+        "surprise_type": "rose_bouquet"
     },
     {
         "id": "propose",
@@ -36,7 +40,11 @@ CONTENT_DATA = [
         "description": "It takes courage to ask, but it's easy when the answer is in the heart.",
         "image": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80",
         "memory_text": "If I had to ask you a thousand times, I would choose you every single time.",
-        "secret_answer": "yes"
+        "secret_answer": "yes",
+        "video_file": "propose.mp4",
+        "sound_file": "propose.mp3",
+        "effect_type": "cinematic_glow",
+        "surprise_type": "propose_card"
     },
     {
         "id": "chocolate",
@@ -46,7 +54,11 @@ CONTENT_DATA = [
         "description": "Life is like a box of chocolates, but you are the sweetest truffle in the box.",
         "image": "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=800&q=80",
         "memory_text": "You are sweeter than any dessert I've ever had.",
-        "secret_answer": "sweet"
+        "secret_answer": "sweet",
+        "video_file": "chocolate.mp4",
+        "sound_file": "chocolate.mp3",
+        "effect_type": "sparkles",
+        "surprise_type": "chocolate_box"
     },
     {
         "id": "teddy",
@@ -56,7 +68,11 @@ CONTENT_DATA = [
         "description": "Soft, warm, and always there to hold. Sending you a virtual bear hug.",
         "image": "https://images.unsplash.com/photo-1559570278-eb8d71d06403?auto=format&fit=crop&w=800&q=80",
         "memory_text": "I wish I could shrink you down and carry you in my pocket like a teddy bear.",
-        "secret_answer": "hug"
+        "secret_answer": "hug",
+        "video_file": "teddy.mp4",
+        "sound_file": "teddy.mp3",
+        "effect_type": "soft_glow",
+        "surprise_type": "teddy_hug"
     },
     {
         "id": "promise",
@@ -66,7 +82,11 @@ CONTENT_DATA = [
         "description": "Promises are the glue of love. Here is mine to you, written in code and stone.",
         "image": "https://images.unsplash.com/photo-1516575150278-77136aed6920?auto=format&fit=crop&w=800&q=80",
         "memory_text": "I promise to be your debugger when life throws runtime errors.",
-        "secret_answer": "forever"
+        "secret_answer": "forever",
+        "video_file": "promise.mp4",
+        "sound_file": "promise.mp3",
+        "effect_type": "particles",
+        "surprise_type": "promise_contract"
     },
     {
         "id": "hug",
@@ -76,7 +96,11 @@ CONTENT_DATA = [
         "description": "Sometimes words are not enough. A hug says everything the heart feels.",
         "image": "https://images.unsplash.com/photo-1517677130602-23a321cf7b98?auto=format&fit=crop&w=800&q=80",
         "memory_text": "Your arms are my favorite place to be.",
-        "secret_answer": "warmth"
+        "secret_answer": "warmth",
+        "video_file": "hug.mp4",
+        "sound_file": "hug.mp3",
+        "effect_type": "warm_glow",
+        "surprise_type": "hug_interaction"
     },
     {
         "id": "kiss",
@@ -86,7 +110,11 @@ CONTENT_DATA = [
         "description": "A touch of lips, a seal of love. The anticipation before the big day.",
         "image": "https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?auto=format&fit=crop&w=800&q=80",
         "memory_text": "Sealed with a kiss.",
-        "secret_answer": "mwah"
+        "secret_answer": "mwah",
+        "video_file": "kiss.mp4",
+        "sound_file": "kiss.mp3",
+        "effect_type": "heart_burst",
+        "surprise_type": "kiss_mark"
     },
     {
         "id": "valentine",
@@ -96,9 +124,57 @@ CONTENT_DATA = [
         "description": "The grand finale. The reason for the season. My Forever Valentine.",
         "image": "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80",
         "memory_text": "You are my favorite movie, my favorite song, and my favorite person.",
-        "secret_answer": "love"
+        "secret_answer": "love",
+        "video_file": "valentine.mp4",
+        "sound_file": "valentine.mp3",
+        "effect_type": "pulse_beat",
+        "surprise_type": "finale"
     }
 ]
+
+# Trivia Questions
+TRIVIA_DATA = {
+    "rose": [
+        {"q": "What is the classic color of a rose given on Rose Day?", "options": ["Pink", "Red", "Yellow", "White"], "correct": 1},
+        {"q": "How many roses signify 'I Love You'?", "options": ["1", "12", "100", "3"], "correct": 3},
+        {"q": "Which goddess is often associated with roses?", "options": ["Athena", "Aphrodite", "Hera", "Artemis"], "correct": 1}
+    ],
+    "propose": [
+        {"q": "What is the traditional knee to propose on?", "options": ["Left", "Right", "Either", "Both"], "correct": 0},
+        {"q": "Which finger is the engagement ring worn on?", "options": ["Index", "Middle", "Ring", "Pinky"], "correct": 2},
+        {"q": "Where is the most popular place to propose?", "options": ["Paris", "Venice", "New York", "Home"], "correct": 0}
+    ],
+    "chocolate": [
+        {"q": "Which country consumes the most chocolate?", "options": ["USA", "Switzerland", "Belgium", "France"], "correct": 1},
+        {"q": "What mood-boosting chemical is in chocolate?", "options": ["Serotonin", "Dopamine", "Oxytocin", "Adrenaline"], "correct": 0},
+        {"q": "What type of chocolate is healthiest?", "options": ["White", "Milk", "Dark", "Ruby"], "correct": 2}
+    ],
+    "teddy": [
+        {"q": "Who is the most famous teddy bear?", "options": ["Paddington", "Pooh", "Ted", "Yogi"], "correct": 1},
+        {"q": "When was the teddy bear invented?", "options": ["1902", "1920", "1950", "1890"], "correct": 0},
+        {"q": "What US President is the teddy bear named after?", "options": ["Lincoln", "Roosevelt", "Washington", "Kennedy"], "correct": 1}
+    ],
+    "promise": [
+        {"q": "A promise ring is a symbol of?", "options": ["Commitment", "Friendship", "Wealth", "Style"], "correct": 0},
+        {"q": "How long should a promise last?", "options": ["A day", "A year", "Forever", "Until hungry"], "correct": 2},
+        {"q": "What is the best way to keep a promise?", "options": ["Write it down", "Don't make it", "Honor it", "Forget it"], "correct": 2}
+    ],
+    "hug": [
+        {"q": "How long of a hug releases oxytocin?", "options": ["5 seconds", "10 seconds", "20 seconds", "1 minute"], "correct": 2},
+        {"q": "A hug is a universal sign of?", "options": ["Comfort", "Anger", "Confusion", "Hunger"], "correct": 0},
+        {"q": "Hugging boosts your?", "options": ["Ego", "Immune System", "Height", "Speed"], "correct": 1}
+    ],
+    "kiss": [
+        {"q": "Philematology is the science of?", "options": ["Hugging", "Kissing", "Loving", "Talking"], "correct": 1},
+        {"q": "How many muscles does a kiss use?", "options": ["10", "20", "34", "100"], "correct": 2},
+        {"q": "Kissing burns how many calories per minute?", "options": ["2-6", "10-20", "50", "0"], "correct": 0}
+    ],
+    "valentine": [
+        {"q": "Who is Cupid the son of?", "options": ["Venus", "Mars", "Jupiter", "Apollo"], "correct": 0},
+        {"q": "What is the flower of Valentine's Day?", "options": ["Lily", "Rose", "Tulip", "Orchid"], "correct": 1},
+        {"q": "What does 'X' stand for in XOXO?", "options": ["Hugs", "Kisses", "Love", "No"], "correct": 1}
+    ]
+}
 
 # --- HELPERS ---
 def get_content_status():
@@ -176,7 +252,9 @@ def watch(ep_id):
         flash("Not available yet! Patience is romantic.")
         return redirect(url_for('browse'))
         
-    return render_template('watch.html', episode=episode, is_finale=(ep_id == 'valentine'))
+    trivia = TRIVIA_DATA.get(ep_id, [])
+
+    return render_template('watch.html', episode=episode, is_finale=(ep_id == 'valentine'), trivia=trivia)
 
 @app.route('/logout')
 def logout():

@@ -1,4 +1,14 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+{% block content %}
+<!-- Assets (Hidden) -->
+<input type="hidden" id="videoSrc" value="{{ url_for('static', filename='videos/' + episode.video_file) }}">
+<input type="hidden" id="soundSrc" value="{{ url_for('static', filename='sfx/' + episode.sound_file) }}">
+<input type="hidden" id="effectType" value="{{ episode.effect_type }}">
+<input type="hidden" id="surpriseType" value="{{ episode.surprise_type }}">
+<script>
+    window.triviaData = {{ trivia | tojson }};
+</script>
+
 <!-- Back Button -->
 <a
   href="{{ url_for('browse') }}"
@@ -7,109 +17,109 @@
   <i data-lucide="arrow-left"></i> Back to Browse
 </a>
 
-<div
-  class="min-h-screen w-full flex flex-col items-center justify-center relative overflow-hidden"
->
+<div class="min-h-screen w-full flex flex-col items-center justify-center relative overflow-hidden" id="mainContainer">
+
   <!-- Cinematic Background -->
   <div class="absolute inset-0 z-0">
     <img
       src="{{ episode.image }}"
       class="w-full h-full object-cover opacity-30 blur-sm"
     />
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-[#141414] via-[#141414]/80 to-transparent"
-    ></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#141414] via-[#141414]/80 to-transparent"></div>
+  </div>
+
+  <!-- Effect/Surprise Layer -->
+  <div id="effectsLayer" class="absolute inset-0 z-0 pointer-events-none overflow-hidden"></div>
+  <div id="surpriseLayer" class="absolute inset-0 z-10 pointer-events-none flex items-center justify-center w-full h-full">
+      <!-- Surprises injected here -->
   </div>
 
   <!-- Content Card -->
-  <div class="relative z-10 max-w-4xl w-full px-4 animate-slide-up">
-    <div class="text-center mb-8">
-      <span
-        class="text-red-500 tracking-widest font-bold uppercase text-sm mb-2 block"
-        >{{ episode.subtitle }}</span
-      >
-      <h1 class="text-5xl md:text-7xl font-bold mb-4">{{ episode.title }}</h1>
+  <div class="relative z-20 max-w-5xl w-full px-4 animate-slide-up">
+    <div class="text-center mb-6">
+      <span class="text-red-500 tracking-widest font-bold uppercase text-sm mb-2 block">{{ episode.subtitle }}</span>
+      <h1 class="text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg">{{ episode.title }}</h1>
     </div>
 
-    <div
-      class="grid md:grid-cols-2 gap-8 items-center bg-black/40 backdrop-blur-md p-8 rounded-xl border border-white/10 shadow-2xl"
-    >
-      <!-- Left: Message -->
+    <div class="grid md:grid-cols-2 gap-8 items-center bg-black/60 backdrop-blur-md p-8 rounded-xl border border-white/10 shadow-2xl">
+      <!-- Left: Actions & Text -->
       <div class="space-y-6">
-        <p
-          class="text-xl md:text-2xl font-light italic text-gray-200 leading-relaxed"
-        >
+        <p class="text-xl md:text-2xl font-light italic text-gray-200 leading-relaxed">
           "{{ episode.memory_text }}"
         </p>
         <div class="h-px w-20 bg-red-600"></div>
         <p class="text-gray-400">{{ episode.description }}</p>
 
-        <!-- Interactive Secret -->
-        {% if not is_finale %}
-        <div class="mt-8">
-          <label class="text-xs uppercase text-gray-500 tracking-widest"
-            >Type '{{ episode.secret_answer }}' to unlock a surprise</label
-          >
-          <div class="flex gap-2 mt-2">
-            <input
-              type="text"
-              id="secretInput"
-              data-answer="{{ episode.secret_answer }}"
-              class="bg-transparent border-b border-gray-600 focus:border-red-600 outline-none px-2 py-1 w-full transition-colors"
-              placeholder="Type here..."
-            />
-            <button
-              onclick="checkSecret()"
-              class="text-red-500 hover:text-red-400"
-            >
-              <i data-lucide="key"></i>
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-4 pt-4">
+            <button onclick="openVideo()" class="flex items-center gap-2 bg-white text-black px-6 py-3 rounded hover:bg-gray-200 font-bold transition">
+                <i data-lucide="play" class="fill-current"></i> Watch Episode
             </button>
-          </div>
+            <button onclick="openTrivia()" class="flex items-center gap-2 bg-gray-800 text-white px-6 py-3 rounded hover:bg-gray-700 font-bold transition border border-gray-600">
+                <i data-lucide="brain"></i> Daily Trivia
+            </button>
         </div>
-        {% endif %}
       </div>
 
-      <!-- Right: Photo Placeholder/Memory -->
-      <div class="relative group">
-        <div
-          class="aspect-[3/4] bg-gray-800 rounded-lg overflow-hidden relative shadow-lg transform rotate-2 group-hover:rotate-0 transition-all duration-500"
-        >
+      <!-- Right: Photo -->
+      <div class="relative group hidden md:block">
+        <div class="aspect-[3/4] bg-gray-800 rounded-lg overflow-hidden relative shadow-lg transform rotate-2 group-hover:rotate-0 transition-all duration-500">
           <img src="{{ episode.image }}" class="w-full h-full object-cover" />
-          <!-- Vignette -->
-          <div
-            class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60"
-          ></div>
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/60"></div>
         </div>
       </div>
     </div>
 
     {% if is_finale %}
-    <div class="mt-12 text-center">
-      <button
-        onclick="launchFinale()"
-        class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold text-xl shadow-[0_0_20px_rgba(220,38,38,0.5)] animate-pulse"
-      >
-        ❤️ Click for One Last Surprise ❤️
-      </button>
+    <div class="mt-8 text-center">
+        <button onclick="window.launchFinale()" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold text-xl shadow-[0_0_20px_rgba(220,38,38,0.5)] animate-pulse">
+            ❤️ Click for One Last Surprise ❤️
+        </button>
     </div>
     {% endif %}
   </div>
 </div>
 
-<!-- Hidden Message Overlay -->
-<div
-  id="secretOverlay"
-  class="fixed inset-0 bg-black/90 z-50 hidden flex-col items-center justify-center text-center p-4"
->
-  <h2 class="text-4xl text-red-500 font-bebas mb-4">Secret Unlocked!</h2>
-  <p class="text-2xl text-white max-w-lg">
-    I love you more than code loves logic. 💖
-  </p>
-  <button
-    onclick="closeOverlay()"
-    class="mt-8 text-gray-400 hover:text-white underline"
-  >
-    Close
-  </button>
+<!-- Video Overlay -->
+<div id="videoOverlay" class="fixed inset-0 bg-black z-50 hidden flex-col items-center justify-center">
+    <button onclick="closeVideo()" class="absolute top-8 right-8 text-white hover:text-red-500 z-50">
+        <i data-lucide="x" class="w-10 h-10"></i>
+    </button>
+    <div class="w-full max-w-6xl aspect-video bg-black relative">
+        <video id="episodeVideo" class="w-full h-full" controls>
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 </div>
+
+<!-- Trivia Overlay -->
+<div id="triviaOverlay" class="fixed inset-0 bg-black/95 z-50 hidden flex-col items-center justify-center p-4">
+    <button onclick="closeTrivia()" class="absolute top-8 right-8 text-white hover:text-red-500 z-50">
+        <i data-lucide="x" class="w-10 h-10"></i>
+    </button>
+    <div class="max-w-2xl w-full bg-gray-900 border border-gray-700 rounded-xl p-8 relative overflow-hidden">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-red-500 mb-2">Daily Trivia</h2>
+            <p class="text-gray-400">Test your love knowledge!</p>
+        </div>
+
+        <!-- Quiz Content -->
+        <div id="quizContainer">
+            <!-- Injected via JS -->
+        </div>
+
+        <!-- Result -->
+        <div id="quizResult" class="hidden text-center animate-fade-in">
+            <h3 class="text-4xl font-bold mb-4" id="scoreDisplay"></h3>
+            <p id="bonusMessage" class="text-xl text-pink-400 italic mb-6"></p>
+            <button onclick="closeTrivia()" class="bg-white text-black px-6 py-2 rounded font-bold hover:bg-gray-200">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='js/effects.js') }}"></script>
+<script src="{{ url_for('static', filename='js/surprises.js') }}"></script>
+<script src="{{ url_for('static', filename='js/player.js') }}"></script>
 {% endblock %}
