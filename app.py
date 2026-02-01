@@ -2,17 +2,18 @@ import os
 import datetime
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from werkzeug.security import generate_password_hash, check_password_hash
+from config import Config
 
 app = Flask(__name__)
-app.secret_key = 'cupid_arrow_secret_key'  # Change this for production
+app.secret_key = Config.SECRET_KEY
 
 # --- CONFIGURATION ---
 # Set this to False to enforce real dates. Set to True to see everything now.
-DEV_MODE = True 
+# DEV_MODE is now loaded from Config
 
-# Users (Username: 'love', Password: 'you')
+# Users
 USERS = {
-    "love": generate_password_hash("you")
+    Config.ADMIN_USERNAME: generate_password_hash(Config.ADMIN_PASSWORD)
 }
 
 # The "Episodes" (Valentine Week)
@@ -238,7 +239,7 @@ def get_content_status():
         # Create a copy so we don't mutate the global state permanently
         item_copy = item.copy()
         
-        if DEV_MODE:
+        if Config.DEV_MODE:
             item_copy['locked'] = False
         else:
             item_copy['locked'] = item['date'] > today
