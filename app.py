@@ -30,7 +30,7 @@ CONTENT_DATA = [
         "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80",
         "memory_text": "Remember when we first met? I knew then that life would be rosier with you.",
         "secret_answer": "rose",
-        "video_url": "/static/videos/rose.mp4",
+        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk&list=RDSAz5dqeWzyk&start_radio=1",
         "sound_file": "rose.mp3",
         "effect_type": "floating_roses",
         "surprise_type": "rose_bouquet"
@@ -44,7 +44,7 @@ CONTENT_DATA = [
         "image": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80",
         "memory_text": "If I had to ask you a thousand times, I would choose you every single time.",
         "secret_answer": "yes",
-        "video_url": "/static/videos/propose.mp4",
+        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk",
         "sound_file": "propose.mp3",
         "effect_type": "cinematic_glow",
         "surprise_type": "propose_card"
@@ -58,7 +58,7 @@ CONTENT_DATA = [
         "image": "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=800&q=80",
         "memory_text": "You are sweeter than any dessert I've ever had.",
         "secret_answer": "sweet",
-        "video_url": "/static/videos/chocolate.mp4",
+        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk",
         "sound_file": "chocolate.mp3",
         "effect_type": "sparkles",
         "surprise_type": "chocolate_box"
@@ -72,7 +72,7 @@ CONTENT_DATA = [
         "image": "https://images.unsplash.com/photo-1559570278-eb8d71d06403?auto=format&fit=crop&w=800&q=80",
         "memory_text": "I wish I could shrink you down and carry you in my pocket like a teddy bear.",
         "secret_answer": "hug",
-        "video_url": "/static/videos/teddy.mp4",
+        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk",
         "sound_file": "teddy.mp3",
         "effect_type": "soft_glow",
         "surprise_type": "teddy_hug"
@@ -86,7 +86,7 @@ CONTENT_DATA = [
         "image": "https://images.unsplash.com/photo-1516575150278-77136aed6920?auto=format&fit=crop&w=800&q=80",
         "memory_text": "I promise to be your debugger when life throws runtime errors.",
         "secret_answer": "forever",
-        "video_url": "/static/videos/promise.mp4",
+        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk",
         "sound_file": "promise.mp3",
         "effect_type": "particles",
         "surprise_type": "promise_contract"
@@ -100,7 +100,7 @@ CONTENT_DATA = [
         "image": "https://images.unsplash.com/photo-1517677130602-23a321cf7b98?auto=format&fit=crop&w=800&q=80",
         "memory_text": "Your arms are my favorite place to be.",
         "secret_answer": "warmth",
-        "video_url": "/static/videos/hug.mp4",
+        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk",
         "sound_file": "hug.mp3",
         "effect_type": "warm_glow",
         "surprise_type": "hug_interaction"
@@ -114,7 +114,7 @@ CONTENT_DATA = [
         "image": "https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?auto=format&fit=crop&w=800&q=80",
         "memory_text": "Sealed with a kiss.",
         "secret_answer": "mwah",
-        "video_url": "/static/videos/kiss.mp4",
+        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk",
         "sound_file": "kiss.mp3",
         "effect_type": "heart_burst",
         "surprise_type": "kiss_mark"
@@ -128,7 +128,7 @@ CONTENT_DATA = [
         "image": "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80",
         "memory_text": "You are my favorite movie, my favorite song, and my favorite person.",
         "secret_answer": "love",
-        "video_url": "/static/videos/valentine.mp4",
+        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk",
         "sound_file": "valentine.mp3",
         "effect_type": "pulse_beat",
         "surprise_type": "finale"
@@ -143,7 +143,7 @@ MEMORIES_DATA = [
         "description": "Where we met and our love blossomed",
         "poetic_lines": "In the city of tea and timber,\nOur souls found a reason to remember.\nThe chaos of streets faded away,\nLeaving only us, night and day.",
         "thumbnail": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80",
-        "video_url": "/static/videos/memories/siliguri.mp4"
+        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk"
     },
     {
         "key": "islampur",
@@ -151,7 +151,7 @@ MEMORIES_DATA = [
         "description": "Your hometown, where you risked to meet...",
         "poetic_lines": "A hometown secret, a risk you took,\nWritten in destiny's own book.\nTo see you smile was worth the mile,\nA memory kept in my heart's file.",
         "thumbnail": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80",
-        "video_url": "/static/videos/memories/islampur.mp4"
+        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk"
     },
     {
         "key": "kolkata",
@@ -159,7 +159,7 @@ MEMORIES_DATA = [
         "description": "Place where you came for me to see and make me feel...",
         "poetic_lines": "The City of Joy, where you came for me,\nA love as deep as the endless sea.\nYou made me feel what words can't say,\nA sunrise on my darkest day.",
         "thumbnail": "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=800&q=80",
-        "video_url": "/static/videos/memories/kolkata.mp4"
+        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk"
     },
     {
         "key": "mandarmani",
@@ -167,7 +167,7 @@ MEMORIES_DATA = [
         "description": "Your first trip to a beach",
         "poetic_lines": "Waves crashing at our feet,\nA melody of love, soft and sweet.\nThe sand, the sea, and your hand in mine,\nA moment frozen in endless time.",
         "thumbnail": "https://images.unsplash.com/photo-1559570278-eb8d71d06403?auto=format&fit=crop&w=800&q=80",
-        "video_url": "/static/videos/memories/mandarmani.mp4"
+        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk"
     },
     {
         "key": "darjeeling",
@@ -175,7 +175,7 @@ MEMORIES_DATA = [
         "description": "First trip to a cold place",
         "poetic_lines": "Amidst the mist and mountain air,\nI found a warmth beyond compare.\nThe cold was sharp, but you were near,\nChasing away every doubt and fear.",
         "thumbnail": "https://images.unsplash.com/photo-1516575150278-77136aed6920?auto=format&fit=crop&w=800&q=80",
-        "video_url": "/static/videos/memories/darjeeling.mp4"
+        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk"
     },
     {
         "key": "manifestation",
@@ -183,7 +183,7 @@ MEMORIES_DATA = [
         "description": "Our endless trips to the world in future, In Sha Allah",
         "poetic_lines": "A map of dreams we have yet to trace,\nEvery corner of the world, every space.\nHand in hand, we'll roam the earth,\nA love that's proved its endless worth.",
         "thumbnail": "https://images.unsplash.com/photo-1517677130602-23a321cf7b98?auto=format&fit=crop&w=800&q=80",
-        "video_url": "/static/videos/memories/manifestation.mp4"
+        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk"
     }
 ]
 

@@ -179,6 +179,14 @@
             <source src="" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <iframe
+            id="memoryFrame"
+            class="w-full h-full hidden"
+            src=""
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
     </div>
 </div>
 
@@ -186,18 +194,42 @@
     document.addEventListener('DOMContentLoaded', () => {
         const overlay = document.getElementById('videoOverlay');
         const video = document.getElementById('memoryVideo');
+        const frame = document.getElementById('memoryFrame');
         const closeBtn = document.getElementById('closeVideoBtn');
         const cards = document.querySelectorAll('.memory-card');
+
+        function getYouTubeId(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : null;
+        }
 
         // Open Video
         cards.forEach(card => {
             card.addEventListener('click', () => {
                 const videoSrc = card.getAttribute('data-video-url');
                 if (videoSrc) {
-                    video.src = videoSrc;
                     overlay.classList.remove('hidden');
                     overlay.classList.add('flex');
-                    video.play().catch(e => console.log("Autoplay blocked:", e));
+
+                    const ytId = getYouTubeId(videoSrc);
+
+                    if (ytId && frame) {
+                        // YouTube
+                        video.classList.add('hidden');
+                        video.pause();
+
+                        frame.classList.remove('hidden');
+                        frame.src = `https://www.youtube.com/embed/${ytId}?autoplay=1`;
+                    } else {
+                        // Native
+                        frame.classList.add('hidden');
+                        frame.src = "";
+
+                        video.classList.remove('hidden');
+                        video.src = videoSrc;
+                        video.play().catch(e => console.log("Autoplay blocked:", e));
+                    }
                 }
             });
         });
@@ -206,9 +238,14 @@
         const closeVideo = () => {
             overlay.classList.add('hidden');
             overlay.classList.remove('flex');
-            video.pause();
-            video.currentTime = 0;
-            video.src = ""; // Stop buffering
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+                video.src = "";
+            }
+            if (frame) {
+                frame.src = "";
+            }
         };
 
         // Close Button Click

@@ -8,9 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+function getYouTubeId(url) {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+}
+
 window.openVideo = function() {
     const overlay = document.getElementById('videoOverlay');
     const video = document.getElementById('episodeVideo');
+    const frame = document.getElementById('episodeFrame');
     const src = document.getElementById('videoSrc').value;
 
     // Stop ambient sound
@@ -20,26 +27,45 @@ window.openVideo = function() {
         window.soundManager.stop(id);
     }
 
-    if (overlay && video) {
+    if (overlay) {
         overlay.classList.remove('hidden');
         overlay.classList.add('flex');
 
-        // Only set src if not already set or different
-        if (!video.getAttribute('src') || video.src !== window.location.origin + src) {
-            video.src = src;
+        const ytId = getYouTubeId(src);
+
+        if (ytId && frame) {
+            // YouTube Mode
+            video.classList.add('hidden');
+            video.pause();
+
+            frame.classList.remove('hidden');
+            frame.src = `https://www.youtube.com/embed/${ytId}?autoplay=1`;
+        } else if (video) {
+            // Native Video Mode
+            frame.classList.add('hidden');
+            frame.src = ""; // Stop iframe playback
+
+            video.classList.remove('hidden');
+            // Only set src if not already set or different
+            if (!video.getAttribute('src') || video.src !== src && video.src !== window.location.origin + src) {
+                video.src = src;
+            }
+            video.play().catch(e => console.error(e));
         }
-        video.play().catch(e => console.error(e));
     }
 }
 
 window.closeVideo = function() {
     const overlay = document.getElementById('videoOverlay');
     const video = document.getElementById('episodeVideo');
+    const frame = document.getElementById('episodeFrame');
 
-    if (overlay && video) {
+    if (overlay) {
         overlay.classList.add('hidden');
         overlay.classList.remove('flex');
-        video.pause();
+
+        if (video) video.pause();
+        if (frame) frame.src = "";
     }
 }
 
