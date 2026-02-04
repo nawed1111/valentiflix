@@ -136,56 +136,57 @@ CONTENT_DATA = [
 ]
 
 # Memories Data
-MEMORIES_DATA = [
+MEMORIES_DATA = MEMORIES_DATA = [
     {
-        "key": "siliguri",
-        "title": "Siliguri",
-        "description": "Where we met and our love blossomed",
-        "poetic_lines": "In the city of tea and timber,\nOur souls found a reason to remember.\nThe chaos of streets faded away,\nLeaving only us, night and day.",
-        "thumbnail": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80",
-        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk"
+        "key": "memory_one",
+        "title": "Memory One",
+        "description": "A special moment we’ll always remember",
+        "poetic_lines": "Under golden skies we used to roam,\nFinding magic far from home.\nA simple laugh, a quiet view,\nA perfect day—just me and you.",
+        "thumbnail": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80",
+        "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     },
     {
-        "key": "islampur",
-        "title": "Islampur",
-        "description": "Your hometown, where you risked to meet...",
-        "poetic_lines": "A hometown secret, a risk you took,\nWritten in destiny's own book.\nTo see you smile was worth the mile,\nA memory kept in my heart's file.",
-        "thumbnail": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80",
-        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk"
+        "key": "memory_two",
+        "title": "Memory Two",
+        "description": "A place that holds a quiet story",
+        "poetic_lines": "Through winding roads and whispered air,\nWe found a peace beyond compare.\nNo crowd, no noise, no heavy past,\nJust love that felt like it could last.",
+        "thumbnail": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80",
+        "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     },
     {
-        "key": "kolkata",
-        "title": "Kolkata",
-        "description": "Place where you came for me to see and make me feel...",
-        "poetic_lines": "The City of Joy, where you came for me,\nA love as deep as the endless sea.\nYou made me feel what words can't say,\nA sunrise on my darkest day.",
-        "thumbnail": "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=800&q=80",
-        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk"
+        "key": "memory_three",
+        "title": "Memory Three",
+        "description": "A day that changed everything",
+        "poetic_lines": "In busy streets and city light,\nYou held my hand and made things right.\nA million faces passed us by,\nBut you were all I could rely.",
+        "thumbnail": "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=800&q=80",
+        "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     },
     {
-        "key": "mandarmani",
-        "title": "Mandarmani",
-        "description": "Your first trip to a beach",
-        "poetic_lines": "Waves crashing at our feet,\nA melody of love, soft and sweet.\nThe sand, the sea, and your hand in mine,\nA moment frozen in endless time.",
-        "thumbnail": "https://images.unsplash.com/photo-1559570278-eb8d71d06403?auto=format&fit=crop&w=800&q=80",
-        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk"
+        "key": "memory_four",
+        "title": "Memory Four",
+        "description": "Our first little adventure together",
+        "poetic_lines": "A breeze, a smile, the open sea,\nA world of wonder—just us two.\nThe tide would rise, the sun would fall,\nYet love was louder than it all.",
+        "thumbnail": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+        "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     },
     {
-        "key": "darjeeling",
-        "title": "Darjeeling",
-        "description": "First trip to a cold place",
-        "poetic_lines": "Amidst the mist and mountain air,\nI found a warmth beyond compare.\nThe cold was sharp, but you were near,\nChasing away every doubt and fear.",
-        "thumbnail": "https://images.unsplash.com/photo-1516575150278-77136aed6920?auto=format&fit=crop&w=800&q=80",
-        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk"
+        "key": "memory_five",
+        "title": "Memory Five",
+        "description": "A cozy escape into the cold",
+        "poetic_lines": "In snowy winds we stood so near,\nYou made the winter disappear.\nThe world was white, the air was clear,\nAnd love felt warmer year by year.",
+        "thumbnail": "https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=800&q=80",
+        "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     },
     {
-        "key": "manifestation",
-        "title": "Manifestation",
-        "description": "Our endless trips to the world in future, In Sha Allah",
-        "poetic_lines": "A map of dreams we have yet to trace,\nEvery corner of the world, every space.\nHand in hand, we'll roam the earth,\nA love that's proved its endless worth.",
-        "thumbnail": "https://images.unsplash.com/photo-1517677130602-23a321cf7b98?auto=format&fit=crop&w=800&q=80",
-        "video_url": "https://www.youtube.com/watch?v=SAz5dqeWzyk"
+        "key": "future_dreams",
+        "title": "Future Dreams",
+        "description": "A promise of journeys yet to come",
+        "poetic_lines": "A future drawn in starlit skies,\nWith endless roads and soft goodbyes.\nWe’ll chase the dreams we’ve yet to see,\nAnd make them real—just you and me.",
+        "thumbnail": "https://images.unsplash.com/photo-1500534314209-a26db0f5d1f1?auto=format&fit=crop&w=800&q=80",
+        "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     }
 ]
+
 
 # Trivia Questions
 TRIVIA_DATA = {
